@@ -7,7 +7,7 @@ export const examples = [
         verb: 'Get',
         description: 'Lista séries com api-key exposta.',
         color: 'purple',
-        Icon: KeyRound,
+        Icon: 'KeyRound',
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const examples = [
         verb: 'Get',
         description: 'Lista séries renderizadas no SSR.',
         color: 'purple',
-        Icon: Server,
+        Icon: 'Server',
     },
     {
         id: 3,
@@ -23,17 +23,17 @@ export const examples = [
         verb: 'Get',
         description: 'Lista séries renderizadas consumida no SessionStorage.',
         color: 'purple',
-        Icon: HardDrive,
+        Icon: 'HardDrive',
     }
 ];
 
 export const crud = [
     {
-        id: 1,
-        method: 'ApiKey',
+        id: 2,
+        method: 'Read',
         verb: 'Get',
-        description: 'Lista series com api-key exposta.',
-        color: 'purple',
-        Icon: KeyRound,
+        description: 'Lista todas as séries.',
+        color: 'green',
+        Icon: 'List',
     },
 ];

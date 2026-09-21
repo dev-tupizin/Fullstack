@@ -17,6 +17,17 @@ export default function Page() {
                         Icon={Icon}
                     />
                 ))}
+                {crud.map(({ id, method, verb, description, color, Icon }) => (
+                    <Card
+                        key={id}
+                        id={id}
+                        verb={verb}
+                        method={method}
+                        description={description}
+                        color={color}
+                        Icon={Icon}
+                    />
+                ))}
             </main>
 
             <footer className={styles.footer}>
