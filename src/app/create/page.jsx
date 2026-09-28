@@ -14,7 +14,7 @@ export default function CreatePage() {
         setLoading(true);
 
         try {
-            await axios.post('/', values);
+            await axios.post('/api/series', values);
             setOpenModal(false);
             toast.success('Série criada!', { id: 'create' });
         } catch (error) {

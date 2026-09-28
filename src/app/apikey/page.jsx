@@ -35,12 +35,12 @@ export default function ApiKeyPage() {
             <p>DevTools - Network - Header - series</p>
             <p>Axios.get direto na API, com api-key no header</p>
             {loading ? (
-                <div className="skeleton">
+                <div className='skeleton'>
                     <Skeleton active />
                 </div>
             ) : (
                 <ul>
-                    {series.map((item) => (
+                    {series.map(item => (
                         <li key={item.id}>{item.title}</li>
                     ))}
                 </ul>
