@@ -90,7 +90,7 @@ export default function FormModal({ openModal, serie, confirmLoading, onSubmit, 
                             message: 'Por favor, insira a URL da imagem válida!',
                         },
                     ]}>
-                    <Input placeholder="ex: https://codeverse.dev.br/breaking-bad.png" />
+                    <Input placeholder="ex: https://example.com/image.jpg" />
                 </Form.Item>
             </Form>
         </Modal>

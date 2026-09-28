@@ -22,6 +22,7 @@ export default async function GetPage() {
             <p>DevTools - Network: nem aparece, pois acontece no servidor</p>
             <p>Axios.get direto na API</p>
             <SeriesList series={series} />
+            <d> fah</d>
         </main>
     );
 }

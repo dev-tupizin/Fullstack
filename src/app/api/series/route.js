@@ -17,3 +17,23 @@ export async function GET(req) {
         return NextResponse.json(data, { status });
     }
 }
+
+export async function POST(req) {
+    try {
+        const body = await req.json();
+
+        const response = await axios.post(process.env.API_URL_SERIES, body, {
+            headers: {
+                'x-api-key': process.env.API_KEY,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        return NextResponse.json(response.data, { status: response.status || 201 });
+    } catch (error) {
+        const status = error.response?.status || 500;
+        const data = error.response?.data || { error: 'Erro ao criar a série.' };
+
+        return NextResponse.json(data, { status });
+    }
+}

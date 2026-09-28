@@ -3,26 +3,29 @@
 import { Skeleton } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 export default function ReadPage() {
     const [series, setSeries] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        async function buscarSeries() {
-            try {
-                const resp = await axios.get('/api/series?limit=50');
-                setSeries(resp.data.data);
-                toast.success('Séries carregadas!', { id: 'read' });
-            } catch (error) {
-                toast.error('Erro ao buscar as séries', { id: 'read' });
-            } finally {
-                setLoading(false);
-            }
-        }
+    async function buscarSeries() {
+        try {
+            setLoading(true);
 
+            const response = await axios.get('/api/series?limit=50');
+
+            setSeries(response.data.data);
+            toast.success('Séries carregadas', { id: 'read' });
+        } catch (error) {
+            toast.error('Erro ao buscar as séries', { id: 'read' });
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
         buscarSeries();
     }, []);
 
@@ -40,8 +43,8 @@ export default function ReadPage() {
                 </div>
             ) : (
                 <ul>
-                    {series.map((item) => (
-                        <li key={item.id}>{item.title}</li>
+                    {series.map((atual) => (
+                        <li key={atual.id}>{atual.title}</li>
                     ))}
                 </ul>
             )}
