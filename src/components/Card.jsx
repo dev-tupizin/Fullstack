@@ -4,7 +4,7 @@ import styles from './Card.module.css';
 export default function Card({ verb, method, description, color, Icon, style }) {
     return (
         <Link
-            href={`/${method.toLowerCase()}`}
+            href={`${method.toLowerCase()}`}
             className={styles.card}
             style={{ ...style, '--card-color': color }}>
             <div className={styles.cardHeader}>

@@ -2,7 +2,7 @@
 
 import { Skeleton } from 'antd';
 import axios from 'axios';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -29,10 +29,13 @@ export default function ReadPage() {
     return (
         <main>
             <h2>Read</h2>
-            <p>Buscar séries via /api/series (nossa API route.js), que fala com a Codeverse direto do servidor.</p>
+            <p>
+                Busca séries via /api/series (nossa API route.js), que fala com a Codeverse direto
+                do servidor.
+            </p>
 
             {loading ? (
-                <div className='skeleton'>
+                <div className="skeleton">
                     <Skeleton active />
                 </div>
             ) : (

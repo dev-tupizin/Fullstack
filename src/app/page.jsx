@@ -1,8 +1,10 @@
-import { examples } from '@/data/crud';
-import styles from './page.module.css';
+import { examples, crud } from '@/data/crud';
 import Card from '@components/Card';
+import styles from './page.module.css';
 
-export default function Page() {
+export default async function Page() {
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
+
     return (
         <>
             <main className={styles.main}>
@@ -29,12 +31,9 @@ export default function Page() {
                     />
                 ))}
             </main>
-
             <footer className={styles.footer}>
-                <div>
-                    <p>Codeverse &copy; {new Date().getFullYear()}</p>
-                    <p>Next.js - Axios - Ant Design - Lucide</p>
-                </div>
+                <p>Codeverse &copy; {new Date().getFullYear()}</p>
+                <p>Next.js - Axios - Ant Design - Lucide</p>
             </footer>
         </>
     );
