@@ -10,11 +10,13 @@ export default function SeriesList({ series }) {
             toast.success('Séries buscadas via SSR e salvas no sessionStorage!', { id: 'ssr' });
         }
     }, [series]);
-
+    
     return (
         <ul>
             {series?.map((item) => (
-                <li key={item.id}>{item.title}</li>
+                <li key={item.id}>
+                    <strong>{item.title}</strong> - {item.genero} - {item.ano_lancamento}
+                </li>
             ))}
         </ul>
     );
