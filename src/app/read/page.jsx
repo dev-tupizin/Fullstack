@@ -1,25 +1,27 @@
-import SeriesList from "@components/SeriesListLinkSRR";
-import {Skeleton} from "antd";
-import { Suspense } from "react";
+import SeriesList from '@components/SeriesListLinkSSR';
+import { Skeleton } from 'antd';
+import { Suspense } from 'react';
 
 export default function ReadPage() {
     return (
         <main>
             <h2>Get - Read</h2>
             <p>
-                O servidor chama a API com api-key privada; o Skeleton aparece até que as séries cheguem usando a tag nativa do React (Suspense). 
+                O servidor chama a API com a api-key privada; o Skeleton aparece até as séries
+                chegarem (Suspense).
             </p>
             <p>
-                Abra o Devtools - Network: a chamada à API não aparece. Clique numa séries que buscá-lo pelo ID.
+                Abra o DevTools → Network: a chamada à API não aparece. Clique numa série para
+                buscá-la pelo id.
             </p>
-            <Suspense 
+            <Suspense
                 fallback={
                     <div className="skeleton">
-                        <Skeleton active/>
+                        <Skeleton active />
                     </div>
                 }>
                 <SeriesList />
             </Suspense>
         </main>
-    )
+    );
 }

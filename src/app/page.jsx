@@ -1,13 +1,14 @@
-
 import Card from '@/components/Card';
-import { examples, crud } from '@/data/crud';
+import { crud, examples } from '@/data/crud';
 import styles from './page.module.css';
 
 export default async function Page() {
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
+
     return (
         <>
             <main className={styles.main}>
-                {examples.map(({ id, method, verb, description, color, Icon }) => (
+                {examples.map(({ id, verb, method, description, color, Icon }) => (
                     <Card
                         key={id}
                         id={id}
@@ -18,7 +19,7 @@ export default async function Page() {
                         Icon={Icon}
                     />
                 ))}
-                {crud.map(({ id, method, verb, description, color, Icon }) => (
+                {crud.map(({ id, verb, method, description, color, Icon }) => (
                     <Card
                         key={id}
                         id={id}
@@ -31,8 +32,8 @@ export default async function Page() {
                 ))}
             </main>
             <footer className={styles.footer}>
-                <p>Codeverse &copy {new Date().getFullYear()}</p>
-                <p>Next.js - Axios - Ant Design - Lucite</p>
+                <p>Codeverse © {new Date().getFullYear()}</p>
+                <p>Next.js - Axios - Ant Design - Lucide</p>
             </footer>
         </>
     );

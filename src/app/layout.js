@@ -8,13 +8,12 @@ export const metadata = {
     description: 'Projeto de CRUD com Next.js 16, React, Ant Design, Toast e Axios',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
     return (
         <html lang="pt-BR">
             <body>
                 <Header />
                 <AntdRegistry>{children}</AntdRegistry>
-                <Toaster />
                 <Toaster />
             </body>
         </html>

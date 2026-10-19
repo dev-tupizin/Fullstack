@@ -9,9 +9,13 @@ import styles from './Header.module.css';
 export default function Header() {
     const pathname = usePathname();
 
-    const operation =
-        crud.find((c) => pathname === `/${c.method.toLowerCase()}`) ||
-        examples.find((e) => pathname === `/${e.method.toLowerCase()}`);
+    // Aceita a rota e suas sub-rotas (ex.: /read e /read/5)
+    const matches = ({ method }) => {
+        const base = `/${method.toLowerCase()}`;
+        return pathname === base || pathname.startsWith(`${base}/`);
+    };
+
+    const operation = crud.find(matches) || examples.find(matches);
 
     const method = pathname === '/' ? 'CRUD' : operation?.method || '404';
     const color = pathname === '/' ? 'black' : operation?.color || 'red';

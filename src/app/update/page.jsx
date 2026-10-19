@@ -1,13 +1,13 @@
-import { Button } from 'antd'
+import { Button } from 'antd';
 import Link from 'next/link';
 
-export default function UpdatePlaceHolder() {
+export default function UpdatePlaceholder() {
     return (
         <main>
             <h2>Página que depende da seleção da série pelo usuário</h2>
-            <p>Vá para o card Get - Read e slecione a série desejada.</p>
-            <Link href='/read'>
-                <Button type="primary"> Ir para Get - Read</Button>
+            <p>Vá para o card Get - Read e selecione a série.</p>
+            <Link href="/read">
+                <Button type="primary">Ir para Get - Read</Button>
             </Link>
         </main>
     );

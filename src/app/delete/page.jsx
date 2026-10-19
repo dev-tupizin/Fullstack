@@ -1,13 +1,13 @@
 import { Button } from 'antd';
 import Link from 'next/link';
 
-export default function DeletePlaceHolder() {
+export default function DeletePlaceholder() {
     return (
         <main>
             <h2>Página que depende da seleção da série pelo usuário</h2>
-            <p>Vá para o card Get - Read e slecione a série desejada.</p>
+            <p>Vá para o card Get - Read e selecione a série.</p>
             <Link href="/read">
-                <Button type="primary"> Ir para Get - Read</Button>
+                <Button type="primary">Ir para Get - Read</Button>
             </Link>
         </main>
     );

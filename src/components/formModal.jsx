@@ -8,7 +8,7 @@ export default function FormModal({ openModal, serie, confirmLoading, onSubmit, 
     return (
         <Modal
             open={openModal}
-            title={serie ? 'Editar Série' : 'Adicionar Série'}
+            title={serie ? 'Editar série' : 'Nova série'}
             centered
             onOk={() => form.submit()}
             onCancel={onCancel}
@@ -23,74 +23,62 @@ export default function FormModal({ openModal, serie, confirmLoading, onSubmit, 
                             required: true,
                             min: 3,
                             max: 120,
-                            message: 'Por favor, insira o título entre 3 e 120 caracteres!',
+                            message: 'Título deve ter entre 3 e 120 caracteres.',
                         },
                     ]}>
-                    <Input placeholder="ex: Grey's Anatomy" />
+                    <Input placeholder="ex: Breaking Bad" />
                 </Form.Item>
 
                 <Form.Item
                     name="genero"
                     label="Gênero"
-                    rules={[
-                        {
-                            required: true,
-                            min: 3,
-                            max: 120,
-                            message: 'Por favor, insira o gênero entre 3 e 120 caracteres!',
-                        },
-                    ]}>
+                    rules={[{ required: true, message: 'Gênero é obrigatório.' }]}>
                     <Input placeholder="ex: Drama" />
                 </Form.Item>
 
                 <Form.Item
                     name="plataforma"
                     label="Plataforma"
-                    rules={[
-                        {
-                            required: true,
-                            min: 3,
-                            max: 120,
-                            message: 'Por favor, insira a plataforma entre 3 e 120 caracteres!',
-                        },
-                    ]}>
-                    <Input placeholder="ex: Disney Plus" />
+                    rules={[{ required: true, message: 'Plataforma é obrigatória.' }]}>
+                    <Input placeholder="ex: Netflix" />
                 </Form.Item>
 
                 <Form.Item
                     name="numero_temporadas"
-                    label="Número de Temporadas"
+                    label="Temporadas"
                     rules={[
                         {
                             required: true,
-                            message: 'Por favor, insira o número de temporadas entre 1 e 100!',
+                            type: 'number',
+                            message: 'Número de temporadas é obrigatório.',
                         },
                     ]}>
-                    <InputNumber placeholder="ex: 23" min={1} style={{ width: '100%' }} />
+                    <InputNumber placeholder="ex: 5" min={1} style={{ width: '100%' }} />
                 </Form.Item>
 
                 <Form.Item
                     name="ano_lancamento"
-                    label="Ano de Lançamento"
+                    label="Ano de lançamento"
                     rules={[
                         {
                             required: true,
-                            message: 'Por favor, insira o ano de lançamento!',
+                            type: 'number',
+                            message: 'Ano de lançamento é obrigatório.',
                         },
                     ]}>
-                    <InputNumber placeholder="ex: 2009" min={1900} style={{ width: '100%' }} />
+                    <InputNumber
+                        placeholder="ex: 2008"
+                        min={1900}
+                        max={2100}
+                        style={{ width: '100%' }}
+                    />
                 </Form.Item>
 
                 <Form.Item
                     name="imageUrl"
-                    label="URL da Imagem"
-                    rules={[
-                        {
-                            type: 'url',
-                            message: 'Por favor, insira a URL da imagem válida!',
-                        },
-                    ]}>
-                    <Input placeholder="ex: https://example.com/image.jpg" />
+                    label="URL da imagem"
+                    rules={[{ type: 'url', message: 'Deve ser uma URL válida.' }]}>
+                    <Input placeholder="ex: https://codeverse.dev.br/breaking-bad.png" />
                 </Form.Item>
             </Form>
         </Modal>

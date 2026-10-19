@@ -1,6 +1,6 @@
 'use client';
 
-import FormModal from '../../components/formModal';
+import FormModal from '@components/FormModal';
 import { Button } from 'antd';
 import axios from 'axios';
 import { useState } from 'react';
@@ -18,7 +18,9 @@ export default function CreatePage() {
             setOpenModal(false);
             toast.success('Série criada!', { id: 'create' });
         } catch (error) {
-            toast.error('Erro ao criar série.', { id: 'create' });
+            toast.error('Erro ao criar a série.', {
+                id: 'create',
+            });
             console.error(error);
         } finally {
             setLoading(false);
@@ -28,8 +30,13 @@ export default function CreatePage() {
     return (
         <main>
             <h2>Post - Create</h2>
+            <p>
+                O navegador envia o formulário (modal) para /api/series (nosso route.js); o servidor
+                cria a série na API com a api-key privada.
+            </p>
+            <p>Abra o DevTools → Network → series → Payload: os dados enviados, sem x-api-key.</p>
             <Button type="primary" onClick={() => setOpenModal(true)}>
-                nova série
+                Nova série
             </Button>
             <FormModal
                 openModal={openModal}

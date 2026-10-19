@@ -5,14 +5,15 @@ export async function GET(req) {
     const { searchParams } = new URL(req.url);
 
     try {
-        const resp = await axios.get(process.env.API_URL_SERIES, {
+        const res = await axios.get(process.env.API_URL_SERIES, {
             params: Object.fromEntries(searchParams),
             headers: { 'x-api-key': process.env.API_KEY },
         });
-        return NextResponse.json(resp.data);
+
+        return NextResponse.json(res.data);
     } catch (error) {
         const status = error.response?.status || 500;
-        const data = error.response?.data || { message: 'Erro ao buscar séries' };
+        const data = error.response?.data || { error: 'Erro ao buscar as séries.' };
 
         return NextResponse.json(data, { status });
     }
@@ -20,14 +21,17 @@ export async function GET(req) {
 
 export async function POST(req) {
     const body = await req.json();
+
     try {
-        const response = await axios.post(process.env.API_URL_SERIES, body, {
+        const res = await axios.post(process.env.API_URL_SERIES, body, {
             headers: { 'x-api-key': process.env.API_KEY },
         });
-        return NextResponse.json(response.data);
+
+        return NextResponse.json(res.data);
     } catch (error) {
-        const status = 500;
-        const data = { error: 'Erro ao criar série' };
+        const status = error.response?.status || 500;
+        const data = error.response?.data || { error: 'Erro ao criar a série.' };
+
         return NextResponse.json(data, { status });
     }
 }
